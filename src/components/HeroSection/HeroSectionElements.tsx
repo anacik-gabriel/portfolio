@@ -5,14 +5,20 @@ export const HeroContainer = styled.section`
   align-items: center;
   justify-content: center;
   padding-top: 90px;
+  width: 100%;
+  height: 100vh;
+  scroll-snap-align: start;
 `;
 
 export const HeroTextLeft = styled.h1`
-  font-family: "Kdam Thmor Pro", sans-serif;
-  font-size: 150px;
-  color: white;
-  width: 100%;
-  margin: 0;
+  & {
+    font-family: "Kdam Thmor Pro", sans-serif;
+    font-size: 150px;
+    color: white;
+    width: 100%;
+    margin: 0;
+    position: relative;
+  }
   &:before {
     content: "<h1>";
     font-family: "Dancing Script", cursive;

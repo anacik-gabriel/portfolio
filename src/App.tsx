@@ -3,12 +3,12 @@ import styled from "styled-components";
 import ParticleBackground from "./components/ParticleBackground";
 import NavBar from "./components/NavBar";
 import HeroSection from "./components/HeroSection";
+import InfoSection from "./components/InfoSection";
 
 const MainContainer = styled.main`
   position: relative;
   z-index: 0;
   overflow-x: hidden;
-  margin-top: 90px;
 
   #tsparticles {
     position: absolute;
@@ -23,10 +23,13 @@ function App() {
   return (
     <>
       <NavBar />
+
       <MainContainer>
         <ParticleBackground />
-
-        <HeroSection />
+        <div className="container">
+          <HeroSection />
+          <InfoSection />
+        </div>
       </MainContainer>
     </>
   );
