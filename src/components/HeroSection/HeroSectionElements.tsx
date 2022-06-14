@@ -14,7 +14,7 @@ export const HeroTextLeft = styled.h1`
   & {
     font-family: "Kdam Thmor Pro", sans-serif;
     font-size: 150px;
-    color: white;
+    color: #ffffff;
     width: 100%;
     margin: 0;
     position: relative;
@@ -33,7 +33,7 @@ export const HeroTextRight = styled.h1`
     justify-content: flex-end;
     font-family: "Kdam Thmor Pro", sans-serif;
     font-size: 150px;
-    color: white;
+    color: #ff652f;
     width: 100%;
     margin: 0;
     position: relative;
