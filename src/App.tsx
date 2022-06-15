@@ -5,6 +5,7 @@ import NavBar from "./components/NavBar";
 import HeroSection from "./components/HeroSection";
 import InfoSection from "./components/InfoSection";
 import ProjectsSection from "./components/ProjectsSection";
+import ContactSection from "./components/ContactSection";
 
 const MainContainer = styled.main`
   position: relative;
@@ -31,6 +32,7 @@ function App() {
           <HeroSection />
           <InfoSection />
           <ProjectsSection />
+          <ContactSection />
         </div>
       </MainContainer>
     </>

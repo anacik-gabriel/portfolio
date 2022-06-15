@@ -1,6 +1,7 @@
 import { useAnimation } from "framer-motion";
 import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import { Element } from "react-scroll";
 import {
   PerspectiveContainer,
   InnerContainer,
@@ -27,42 +28,44 @@ const ProjectsSection = () => {
     inView ? controls.start("visible") : controls.start("hidden");
   }, [inView, controls]);
   return (
-    <ProjectsContainer>
-      <InnerContainer>
-        <Title>
-          <h1>Projects</h1>
-        </Title>
-        <ProjectBoxContainer>
-          <PerspectiveContainer>
-            <ProjectBox
-              variants={variants}
-              whileHover={{ backgroundColor: "#ff652f", y: -10 }}
-              ref={ref}
-              animate={controls}
-            ></ProjectBox>
-          </PerspectiveContainer>
-          <PerspectiveContainer>
-            <ProjectBox
-              variants={variants}
-              ref={ref}
-              animate={controls}
-              whileHover={{ backgroundColor: "#ff652f", y: -10 }}
-            ></ProjectBox>
-          </PerspectiveContainer>
-          <PerspectiveContainer>
-            <ProjectBox
-              variants={variants}
-              whileHover={{
-                backgroundColor: "#ff652f",
-                y: -10,
-              }}
-              ref={ref}
-              animate={controls}
-            ></ProjectBox>
-          </PerspectiveContainer>
-        </ProjectBoxContainer>
-      </InnerContainer>
-    </ProjectsContainer>
+    <Element name="projects">
+      <ProjectsContainer>
+        <InnerContainer>
+          <Title>
+            <h1>Projects</h1>
+          </Title>
+          <ProjectBoxContainer>
+            <PerspectiveContainer>
+              <ProjectBox
+                variants={variants}
+                whileHover={{ backgroundColor: "#ff652f", y: -10 }}
+                ref={ref}
+                animate={controls}
+              ></ProjectBox>
+            </PerspectiveContainer>
+            <PerspectiveContainer>
+              <ProjectBox
+                variants={variants}
+                ref={ref}
+                animate={controls}
+                whileHover={{ backgroundColor: "#ff652f", y: -10 }}
+              ></ProjectBox>
+            </PerspectiveContainer>
+            <PerspectiveContainer>
+              <ProjectBox
+                variants={variants}
+                whileHover={{
+                  backgroundColor: "#ff652f",
+                  y: -10,
+                }}
+                ref={ref}
+                animate={controls}
+              ></ProjectBox>
+            </PerspectiveContainer>
+          </ProjectBoxContainer>
+        </InnerContainer>
+      </ProjectsContainer>
+    </Element>
   );
 };
 
