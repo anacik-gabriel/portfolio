@@ -1,3 +1,4 @@
+import { Element } from "react-scroll";
 import {
   ContactContainer,
   InnerContainer,
@@ -7,16 +8,18 @@ import {
 
 const ContactSection = () => {
   return (
-    <ContactContainer>
-      <InnerContainer>
-        <Title>
-          <h1>Contact Me</h1>
-        </Title>
-        <form>
-          <Input type="text" />
-        </form>
-      </InnerContainer>
-    </ContactContainer>
+    <Element name="contact">
+      <ContactContainer>
+        <InnerContainer>
+          <Title>
+            <h1>Contact Me</h1>
+          </Title>
+          <form>
+            <Input type="text" />
+          </form>
+        </InnerContainer>
+      </ContactContainer>
+    </Element>
   );
 };
 

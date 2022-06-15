@@ -7,6 +7,15 @@ import {
   HeroTextRight,
   InnerContainer,
 } from "./HeroSectionElements";
+import {
+  Link,
+  Button,
+  Element,
+  Events,
+  animateScroll as scroll,
+  scrollSpy,
+  scroller,
+} from "react-scroll";
 
 const line = "Hi, my name is Gabriel!";
 const line2 = "I'm a beginner web-developer.";
@@ -47,73 +56,75 @@ const HeroSection = () => {
   }, [controls, inView]);
 
   return (
-    <HeroContainer>
-      <InnerContainer>
-        <HeroTextLeft
-          as={motion.h1}
-          variants={textLeftVariants}
-          initial="hidden"
-          animate={controls}
-          ref={ref}
-          transition={{ type: "tween", duration: 3 }}
-        >
-          <motion.span whileHover={{ color: "#ff652f" }}>F</motion.span>
-          <motion.span whileHover={{ color: "#ff652f" }}>R</motion.span>
-          <motion.span whileHover={{ color: "#ff652f" }}>O</motion.span>
-          <motion.span whileHover={{ color: "#ff652f" }}>N</motion.span>
-          <motion.span whileHover={{ color: "#ff652f" }}>T</motion.span>
-          <motion.span whileHover={{ color: "#ff652f" }}>-</motion.span>
-          <motion.span whileHover={{ color: "#ff652f" }}>E</motion.span>
-          <motion.span whileHover={{ color: "#ff652f" }}>N</motion.span>
-          <motion.span whileHover={{ color: "#ff652f" }}>D</motion.span>
-        </HeroTextLeft>
-        <HeroTextRight
-          as={motion.h1}
-          variants={textRightVariants}
-          initial="hidden"
-          animate={controls}
-          ref={ref}
-          transition={{ type: "tween", duration: 3 }}
-        >
-          <motion.span whileHover={{ color: "#ffffff" }}>D</motion.span>
-          <motion.span whileHover={{ color: "#ffffff" }}>E</motion.span>
-          <motion.span whileHover={{ color: "#ffffff" }}>V</motion.span>
-          <motion.span whileHover={{ color: "#ffffff" }}>E</motion.span>
-          <motion.span whileHover={{ color: "#ffffff" }}>L</motion.span>
-          <motion.span whileHover={{ color: "#ffffff" }}>O</motion.span>
-          <motion.span whileHover={{ color: "#ffffff" }}>P</motion.span>
-          <motion.span whileHover={{ color: "#ffffff" }}>E</motion.span>
-          <motion.span whileHover={{ color: "#ffffff" }}>R</motion.span>
-        </HeroTextRight>
-        <motion.h2
-          style={{
-            color: "#ffffff",
-            fontFamily: "Dancing Script, cursive",
-            fontSize: "50px",
-          }}
-          variants={sentence}
-          initial="hidden"
-          animate={controls}
-          ref={ref}
-        >
-          {line.split("").map((char, index) => {
-            return (
-              <motion.span key={char + "-" + index} variants={letter}>
-                {char}
-              </motion.span>
-            );
-          })}
-          <br />
-          {line2.split("").map((char, index) => {
-            return (
-              <motion.span key={char + "-" + index} variants={letter}>
-                {char}
-              </motion.span>
-            );
-          })}
-        </motion.h2>
-      </InnerContainer>
-    </HeroContainer>
+    <Element name="home">
+      <HeroContainer>
+        <InnerContainer>
+          <HeroTextLeft
+            as={motion.h1}
+            variants={textLeftVariants}
+            initial="hidden"
+            animate={controls}
+            ref={ref}
+            transition={{ type: "tween", duration: 3 }}
+          >
+            <motion.span whileHover={{ color: "#ff652f" }}>F</motion.span>
+            <motion.span whileHover={{ color: "#ff652f" }}>R</motion.span>
+            <motion.span whileHover={{ color: "#ff652f" }}>O</motion.span>
+            <motion.span whileHover={{ color: "#ff652f" }}>N</motion.span>
+            <motion.span whileHover={{ color: "#ff652f" }}>T</motion.span>
+            <motion.span whileHover={{ color: "#ff652f" }}>-</motion.span>
+            <motion.span whileHover={{ color: "#ff652f" }}>E</motion.span>
+            <motion.span whileHover={{ color: "#ff652f" }}>N</motion.span>
+            <motion.span whileHover={{ color: "#ff652f" }}>D</motion.span>
+          </HeroTextLeft>
+          <HeroTextRight
+            as={motion.h1}
+            variants={textRightVariants}
+            initial="hidden"
+            animate={controls}
+            ref={ref}
+            transition={{ type: "tween", duration: 3 }}
+          >
+            <motion.span whileHover={{ color: "#ffffff" }}>D</motion.span>
+            <motion.span whileHover={{ color: "#ffffff" }}>E</motion.span>
+            <motion.span whileHover={{ color: "#ffffff" }}>V</motion.span>
+            <motion.span whileHover={{ color: "#ffffff" }}>E</motion.span>
+            <motion.span whileHover={{ color: "#ffffff" }}>L</motion.span>
+            <motion.span whileHover={{ color: "#ffffff" }}>O</motion.span>
+            <motion.span whileHover={{ color: "#ffffff" }}>P</motion.span>
+            <motion.span whileHover={{ color: "#ffffff" }}>E</motion.span>
+            <motion.span whileHover={{ color: "#ffffff" }}>R</motion.span>
+          </HeroTextRight>
+          <motion.h2
+            style={{
+              color: "#ffffff",
+              fontFamily: "Dancing Script, cursive",
+              fontSize: "50px",
+            }}
+            variants={sentence}
+            initial="hidden"
+            animate={controls}
+            ref={ref}
+          >
+            {line.split("").map((char, index) => {
+              return (
+                <motion.span key={char + "-" + index} variants={letter}>
+                  {char}
+                </motion.span>
+              );
+            })}
+            <br />
+            {line2.split("").map((char, index) => {
+              return (
+                <motion.span key={char + "-" + index} variants={letter}>
+                  {char}
+                </motion.span>
+              );
+            })}
+          </motion.h2>
+        </InnerContainer>
+      </HeroContainer>
+    </Element>
   );
 };
 
