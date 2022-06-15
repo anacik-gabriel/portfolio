@@ -4,6 +4,7 @@ import ParticleBackground from "./components/ParticleBackground";
 import NavBar from "./components/NavBar";
 import HeroSection from "./components/HeroSection";
 import InfoSection from "./components/InfoSection";
+import ProjectsSection from "./components/ProjectsSection";
 
 const MainContainer = styled.main`
   position: relative;
@@ -29,6 +30,7 @@ function App() {
         <div className="container">
           <HeroSection />
           <InfoSection />
+          <ProjectsSection />
         </div>
       </MainContainer>
     </>

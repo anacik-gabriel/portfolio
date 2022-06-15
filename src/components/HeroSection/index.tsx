@@ -1,5 +1,5 @@
 import { motion, useAnimation } from "framer-motion";
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import {
   HeroContainer,

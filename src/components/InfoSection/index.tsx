@@ -21,7 +21,7 @@ import styledIcon from "../../assets/atom.png";
 import githubIcon from "../../assets/github.png";
 
 const InfoSection = () => {
-  const [ref, inView] = useInView();
+  const [ref, inView] = useInView({ threshold: 0.5 });
   const controls = useAnimation();
 
   useEffect(() => {
@@ -42,7 +42,7 @@ const InfoSection = () => {
           animate={controls}
           initial={"hidden"}
           ref={ref}
-          transition={{ duration: 3 }}
+          transition={{ duration: 3, delay: 0 }}
         >
           <Title layout>
             <h1>About Me</h1>
@@ -71,7 +71,7 @@ const InfoSection = () => {
           animate={controls}
           initial={"hidden"}
           ref={ref}
-          transition={{ duration: 3 }}
+          transition={{ duration: 3, delay: 0 }}
         >
           <Title layout>
             <h2>Technologies & Tools I Can Use</h2>
