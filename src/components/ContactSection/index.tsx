@@ -2,6 +2,9 @@ import { useEffect, useRef, useState } from "react";
 import { Element } from "react-scroll";
 import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
 
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import {
   ContactContainer,
   ContactWrapper,
@@ -33,13 +36,13 @@ const iconStyle = {
   padding: "5px",
 };
 const ContactSection = () => {
-  const [nameActive, setNameActive] = useState(false);
-  const [emailActive, setEmailActive] = useState(false);
-  const [subjectActive, setSubjectActive] = useState(false);
-  const [textareaActive, setTextareaActive] = useState(false);
+  const [inputActive, setInputActive] = useState(0);
   const controls = useAnimation();
   const [ref, inView] = useInView();
   const form = useRef(null);
+
+  const successPrompt = () => toast.success("Got your message, Thank You!");
+  const errorPrompt = (message: string) => toast.error("message");
   const formVariants = {
     hidden: { opacity: 0, x: 300 },
     visible: { opacity: 1, x: 0 },
@@ -67,135 +70,138 @@ const ContactSection = () => {
     emailjs
       .sendForm(SERVICE_ID, "template_77g45or", form.current, PUBLIC_KEY)
       .then(
-        (result: EmailJSResponseStatus) => {
-          alert(result.text);
+        () => {
+          successPrompt();
         },
         (error: EmailJSResponseStatus) => {
-          alert(error.text);
+          errorPrompt(error.text);
         }
       );
   };
   return (
-    <Element name="contact">
-      <ContactContainer>
-        <InnerContainer ref={ref}>
-          <Title>
-            <h1>Contact Me</h1>
-          </Title>
-          <ContactWrapper>
-            <LeftIconsContainer
-              variants={leftIconsVariants}
-              initial="hidden"
-              animate={controls}
-              transition={{ duration: 2 }}
-            >
-              <LeftIcons>
-                <GoLocation size={"5em"} style={iconStyle} />
-                <p>Białystok, Poland</p>
-              </LeftIcons>
-              <LeftIcons>
-                <BiMobileVibration size={"5em"} style={iconStyle} />
-                <p>+48 795-068-761</p>
-              </LeftIcons>
-              <LeftIcons>
-                <TbMail size={"5em"} style={iconStyle} />
-                <p>anacik.gabriel@gmail.com</p>
-              </LeftIcons>
-            </LeftIconsContainer>
-            <FormContainer
-              variants={formVariants}
-              initial="hidden"
-              animate={controls}
-              transition={{ duration: 2 }}
-            >
-              <p>Send Email</p>
-              <TestForm ref={form} onSubmit={sendEmail}>
-                <TestFormGroup
-                  onFocus={() => setNameActive(true)}
-                  onBlur={() => setNameActive(false)}
-                >
-                  <TestFormLabel
-                    className={nameActive ? "focused" : ""}
-                    htmlFor="name"
+    <>
+      <ToastContainer position="top-center" style={{ marginTop: "100px" }} />
+      <Element name="contact">
+        <ContactContainer>
+          <InnerContainer ref={ref}>
+            <Title>
+              <h1>Contact Me</h1>
+            </Title>
+            <ContactWrapper>
+              <LeftIconsContainer
+                variants={leftIconsVariants}
+                initial="hidden"
+                animate={controls}
+                transition={{ duration: 2 }}
+              >
+                <LeftIcons>
+                  <GoLocation size={"5em"} style={iconStyle} />
+                  <p>Białystok, Poland</p>
+                </LeftIcons>
+                <LeftIcons>
+                  <BiMobileVibration size={"5em"} style={iconStyle} />
+                  <p>+48 795-068-761</p>
+                </LeftIcons>
+                <LeftIcons>
+                  <TbMail size={"5em"} style={iconStyle} />
+                  <p>anacik.gabriel@gmail.com</p>
+                </LeftIcons>
+              </LeftIconsContainer>
+              <FormContainer
+                variants={formVariants}
+                initial="hidden"
+                animate={controls}
+                transition={{ duration: 2 }}
+              >
+                <p>Send Email</p>
+                <TestForm ref={form} onSubmit={sendEmail}>
+                  <TestFormGroup
+                    onFocus={() => setInputActive(1)}
+                    onBlur={() => setInputActive(0)}
                   >
-                    Your name
-                  </TestFormLabel>
-                  <TestControl
-                    type="text"
-                    id="name"
-                    name="name"
-                    placeholder="Walter White"
-                    tabIndex={1}
-                    required
-                  ></TestControl>
-                </TestFormGroup>
-                <TestFormGroup
-                  onFocus={() => setEmailActive(true)}
-                  onBlur={() => setEmailActive(false)}
-                >
-                  <TestFormLabel
-                    className={emailActive ? "focused" : ""}
-                    htmlFor="email"
+                    <TestFormLabel
+                      className={inputActive === 1 ? "focused" : ""}
+                      htmlFor="name"
+                    >
+                      Your name
+                    </TestFormLabel>
+                    <TestControl
+                      type="text"
+                      id="name"
+                      name="name"
+                      placeholder="Walter White"
+                      tabIndex={1}
+                      required
+                    ></TestControl>
+                  </TestFormGroup>
+                  <TestFormGroup
+                    onFocus={() => setInputActive(2)}
+                    onBlur={() => setInputActive(0)}
                   >
-                    Your Email
-                  </TestFormLabel>
-                  <TestControl
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder="saymyname@gmail.com"
-                    tabIndex={2}
-                    required
-                  ></TestControl>
-                </TestFormGroup>
-                <TestFormGroup
-                  onFocus={() => setSubjectActive(true)}
-                  onBlur={() => setSubjectActive(false)}
-                >
-                  <TestFormLabel
-                    className={subjectActive ? "focused" : ""}
-                    htmlFor="subject"
+                    <TestFormLabel
+                      className={inputActive === 2 ? "focused" : ""}
+                      htmlFor="email"
+                    >
+                      Your Email
+                    </TestFormLabel>
+                    <TestControl
+                      type="email"
+                      id="email"
+                      name="email"
+                      placeholder="saymyname@gmail.com"
+                      tabIndex={2}
+                      required
+                    ></TestControl>
+                  </TestFormGroup>
+                  <TestFormGroup
+                    onFocus={() => setInputActive(3)}
+                    onBlur={() => setInputActive(0)}
                   >
-                    Subject
-                  </TestFormLabel>
-                  <TestControl
-                    type="text"
-                    id="subject"
-                    name="subject"
-                    placeholder="Hello there!"
-                    tabIndex={3}
-                    required
-                  ></TestControl>
-                </TestFormGroup>
-                <TestFormGroup
-                  onFocus={() => setTextareaActive(true)}
-                  onBlur={() => setTextareaActive(false)}
-                >
-                  <TestFormLabel
-                    className={textareaActive ? "focused" : ""}
-                    htmlFor="message"
+                    <TestFormLabel
+                      className={inputActive === 3 ? "focused" : ""}
+                      htmlFor="subject"
+                    >
+                      Subject
+                    </TestFormLabel>
+                    <TestControl
+                      type="text"
+                      id="subject"
+                      name="subject"
+                      placeholder="Hello there!"
+                      tabIndex={3}
+                      required
+                    ></TestControl>
+                  </TestFormGroup>
+                  <TestFormGroup
+                    onFocus={() => setInputActive(4)}
+                    onBlur={() => setInputActive(0)}
                   >
-                    Message
-                  </TestFormLabel>
-                  <TestControlText
-                    rows={5}
-                    cols={50}
-                    id="message"
-                    name="message"
-                    placeholder="Enter Message..."
-                    tabIndex={4}
-                  ></TestControlText>
-                </TestFormGroup>
+                    <TestFormLabel
+                      className={inputActive === 4 ? "focused" : ""}
+                      htmlFor="message"
+                    >
+                      Message
+                    </TestFormLabel>
+                    <TestControlText
+                      rows={5}
+                      cols={50}
+                      id="message"
+                      name="message"
+                      placeholder="Enter Message..."
+                      tabIndex={4}
+                    ></TestControlText>
+                  </TestFormGroup>
 
-                <NewButton type="submit">
-                  <span>Send!</span>
-                </NewButton>
-              </TestForm>
-            </FormContainer>
-          </ContactWrapper>
-        </InnerContainer>
-      </ContactContainer>
-    </Element>
+                  <NewButton type="submit">
+                    <span>Send!</span>
+                  </NewButton>
+                </TestForm>
+              </FormContainer>
+            </ContactWrapper>
+          </InnerContainer>
+        </ContactContainer>
+      </Element>
+    </>
   );
 };
 
