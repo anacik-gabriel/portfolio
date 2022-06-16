@@ -5,7 +5,7 @@ export const ProjectsContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 90px;
+
   height: 100vh;
   width: 100%;
   scroll-snap-align: start;
