@@ -14,3 +14,14 @@ body {
   background: rgba(255, 101, 47, 0.8);
   border-radius: 5px;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  -webkit-box-shadow: 0 0 0 50px #3e3d3e inset !important;
+}
+
+input:-webkit-autofill {
+  -webkit-text-fill-color: #8e8e8e !important;
+}
