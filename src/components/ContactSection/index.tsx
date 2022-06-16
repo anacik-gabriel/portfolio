@@ -45,6 +45,11 @@ const ContactSection = () => {
     visible: { opacity: 1, x: 0 },
   };
 
+  const leftIconsVariants = {
+    hidden: { opacity: 0, x: -300 },
+    visible: { opacity: 1, x: 0 },
+  };
+
   useEffect(() => {
     inView ? controls.start("visible") : controls.start("hidden");
   }, [controls, inView]);
@@ -54,9 +59,13 @@ const ContactSection = () => {
       return;
     }
     e.preventDefault();
-
+    const SERVICE_ID = process.env.REACT_APP_EMAILJS_SERVICE_ID;
+    const PUBLIC_KEY = process.env.REACT_APP_EMAILJS_PUBLIC_KEY;
+    if (SERVICE_ID === undefined || PUBLIC_KEY === undefined) {
+      return;
+    }
     emailjs
-      .sendForm("gmail_service", "template_77g45or", form.current, "key")
+      .sendForm(SERVICE_ID, "template_77g45or", form.current, PUBLIC_KEY)
       .then(
         (result: EmailJSResponseStatus) => {
           alert(result.text);
@@ -69,12 +78,17 @@ const ContactSection = () => {
   return (
     <Element name="contact">
       <ContactContainer>
-        <InnerContainer>
+        <InnerContainer ref={ref}>
           <Title>
             <h1>Contact Me</h1>
           </Title>
           <ContactWrapper>
-            <LeftIconsContainer>
+            <LeftIconsContainer
+              variants={leftIconsVariants}
+              initial="hidden"
+              animate={controls}
+              transition={{ duration: 2 }}
+            >
               <LeftIcons>
                 <GoLocation size={"5em"} style={iconStyle} />
                 <p>Białystok, Poland</p>
@@ -92,7 +106,6 @@ const ContactSection = () => {
               variants={formVariants}
               initial="hidden"
               animate={controls}
-              ref={ref}
               transition={{ duration: 2 }}
             >
               <p>Send Email</p>
@@ -149,7 +162,7 @@ const ContactSection = () => {
                     type="text"
                     id="subject"
                     name="subject"
-                    placeholder="Hello There!"
+                    placeholder="Hello there!"
                     tabIndex={3}
                     required
                   ></TestControl>

@@ -58,6 +58,7 @@ export const Underline = styled(motion.div)`
 
 export const Test = styled(motion.div)`
   margin-top: 15px;
+  cursor: pointer;
   margin-left: 60px;
   background-color: #ff652f;
   height: 70px;

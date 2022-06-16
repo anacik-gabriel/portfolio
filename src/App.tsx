@@ -6,6 +6,9 @@ import HeroSection from "./components/HeroSection";
 import InfoSection from "./components/InfoSection";
 import ProjectsSection from "./components/ProjectsSection";
 import ContactSection from "./components/ContactSection";
+import { useEffect, useState } from "react";
+import Loader from "./components/Loader";
+import { AnimatePresence } from "framer-motion";
 
 const MainContainer = styled.main`
   position: relative;
@@ -22,10 +25,15 @@ const MainContainer = styled.main`
   }
 `;
 function App() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => setLoading(false), 6000);
+  }, []);
+
   return (
     <>
       <NavBar />
-
       <MainContainer>
         <ParticleBackground />
         <div className="container">
@@ -34,7 +42,7 @@ function App() {
           <ProjectsSection />
           <ContactSection />
         </div>
-      </MainContainer>
+      </MainContainer>{" "}
     </>
   );
 }

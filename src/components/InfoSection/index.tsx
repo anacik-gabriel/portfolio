@@ -62,8 +62,7 @@ const InfoSection = () => {
               </p>
               <p>
                 I'm a hard-working and humble person, open for any challlenges,
-                so don't hesitate to reach me out if you want to say Hello or
-                throw some tips!
+                so don't hesitate to reach me out if you want to say Hello!
               </p>
             </AboutMe>
           </Card>

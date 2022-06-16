@@ -5,7 +5,7 @@ export const ContactContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 90px;
+
   width: 100%;
   height: 100vh;
   scroll-snap-align: start;
@@ -278,7 +278,7 @@ export const LeftIcons = styled.div`
   }
 `;
 
-export const LeftIconsContainer = styled.div`
+export const LeftIconsContainer = styled(motion.div)`
   display: flex;
   flex-direction: column;
   justify-content: center;
