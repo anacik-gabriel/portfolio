@@ -6,6 +6,7 @@ import jsLogo from "../../assets/js.png";
 import vsLogo from "../../assets/vsLogo.png";
 import htmlIcon from "../../assets/htmlIcon.png";
 import sassLogo from "../../assets/sassLogo.png";
+
 import { loadFull } from "tsparticles";
 
 const ParticleBackground = () => {

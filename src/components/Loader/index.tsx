@@ -3,10 +3,12 @@ import { AnimatePresence, motion } from "framer-motion";
 
 const wrapperVariants = {
   initial: {
-    clipPath: "circle(0% at 50% 50%)",
+    clipPath: "clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%)",
     transition: { duration: 0.4 },
   },
-  animate: {},
+  animate: {
+    clipPath: "clip-path: polygon(0 0, 100% 0, 100% 0, 0 0)",
+  },
   exit: {
     opacity: "0.5",
     transition: { duration: 5 },

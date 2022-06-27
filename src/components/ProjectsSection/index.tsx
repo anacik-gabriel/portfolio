@@ -9,7 +9,13 @@ import {
   ProjectBoxContainer,
   ProjectsContainer,
   Title,
+  ProjectBoxInner,
 } from "./ProjectsElements";
+import portfolioImage from "../../assets/portfolio.png";
+import watchlistImage from "../../assets/watchlist.png";
+import { AiOutlineFolder } from "react-icons/ai";
+import { BsGithub } from "react-icons/bs";
+import { GoLinkExternal } from "react-icons/go";
 
 const ProjectsSection = () => {
   const [ref, inView] = useInView({ threshold: 0.7 });
@@ -38,29 +44,62 @@ const ProjectsSection = () => {
             <PerspectiveContainer>
               <ProjectBox
                 variants={variants}
-                whileHover={{ backgroundColor: "#ff652f", y: -10 }}
+                whileHover={{ y: -10 }}
                 ref={ref}
                 animate={controls}
-              ></ProjectBox>
+              >
+                <img alt="" src={portfolioImage} />
+                <ProjectBoxInner>
+                  <div className="icons">
+                    <AiOutlineFolder color="#fff" size={"3rem"} />
+                    <div className="links">
+                      <a href="https://github.com/anacik-gabriel/portfolio">
+                        <BsGithub size={"2rem"} color="#fff" />
+                      </a>
+                      <a href="https://portfolio-anacik-gabriel.vercel.app/">
+                        <GoLinkExternal size={"2rem"} color="#fff" />
+                      </a>
+                    </div>
+                  </div>
+                  <h2>Portfolio</h2>
+                  <p>Needless to say, page you're currently on.</p>
+                </ProjectBoxInner>
+              </ProjectBox>
             </PerspectiveContainer>
             <PerspectiveContainer>
               <ProjectBox
                 variants={variants}
                 ref={ref}
                 animate={controls}
-                whileHover={{ backgroundColor: "#ff652f", y: -10 }}
-              ></ProjectBox>
+                whileHover={{ y: -10 }}
+              >
+                <img alt="" src={watchlistImage} />
+                <ProjectBoxInner>
+                  <div className="icons">
+                    <AiOutlineFolder color="#fff" size={"3rem"} />
+                    <div className="links">
+                      <a href="https://github.com/anacik-gabriel/movie-watchlist">
+                        <BsGithub size={"2rem"} color="#fff" />
+                      </a>
+                      <a href="https://movie-watchlist-ten.vercel.app/">
+                        <GoLinkExternal size={"2rem"} color="#fff" />
+                      </a>
+                    </div>
+                  </div>
+                  <h2>Movie Watchlist</h2>
+                  <p>
+                    Simple website to track watched Movies/TVs, watchlist stored
+                    in local storage.
+                  </p>
+                </ProjectBoxInner>
+              </ProjectBox>
             </PerspectiveContainer>
             <PerspectiveContainer>
-              <ProjectBox
-                variants={variants}
-                whileHover={{
-                  backgroundColor: "#ff652f",
-                  y: -10,
-                }}
-                ref={ref}
-                animate={controls}
-              ></ProjectBox>
+              <ProjectBox variants={variants} ref={ref} animate={controls}>
+                <div className="placeholder">
+                  <p>Work in progress, more soon : )</p>
+                </div>
+              </ProjectBox>
             </PerspectiveContainer>
           </ProjectBoxContainer>
         </InnerContainer>
