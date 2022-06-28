@@ -5,41 +5,17 @@ export const ContactContainer = styled.section`
   display: flex;
   align-items: center;
   justify-content: center;
-
   width: 100%;
   height: 100vh;
   scroll-snap-align: start;
 `;
 
 export const InnerContainer = styled.div`
-  @media (min-width: 1501px) {
-    max-width: 1260px;
-  }
+  max-width: 1260px;
   display: flex;
   flex-direction: column;
   width: 100%;
   align-items: center;
-`;
-
-export const Input = styled.input`
-  height: 50px;
-  width: 100%;
-  border-radius: 4px;
-  outline: none;
-  border: 1px solid #5d5c61;
-  background-color: #5d5c61;
-  font-size: 15px;
-  padding-left: 5px;
-  color: #b4b2b8;
-  transition: 0.5s ease;
-
-  &:hover {
-    border: 2px solid #737376;
-  }
-
-  &:focus {
-    border: 2px solid #ff6f69;
-  }
 `;
 
 export const Title = styled.div`
@@ -63,40 +39,16 @@ export const Title = styled.div`
   }
 `;
 
-export const Form = styled.form`
-  width: 100%;
-  align-self: center;
-  .name {
-    width: 49%;
-    display: inline-block;
-    margin-right: 2%;
-  }
-
-  .email {
-    width: 49%;
-    display: inline-block;
-  }
-
-  .subject {
-    margin-top: 10px;
-  }
-
-  .message {
-    margin-top: 10px;
-    height: 200px;
-  }
-`;
-
 export const FormContainer = styled(motion.div)`
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
   margin-top: 20px;
   padding: 60px;
   background-color: rgb(46, 45, 45);
-  width: 50%;
+  width: 45%;
   border-radius: 20px;
   p {
     color: #ff652f;
-    font-family: "Inconsolata", monospace;
+    font-family: "Roboto", sans-serif;
     font-size: 2em;
     text-align: center;
     margin: 0;
@@ -104,7 +56,7 @@ export const FormContainer = styled(motion.div)`
   }
 `;
 
-export const TestForm = styled.form`
+export const Form = styled.form`
   .focused {
     opacity: 1;
     transform: translateX(0px);
@@ -113,7 +65,7 @@ export const TestForm = styled.form`
   flex-direction: column;
 `;
 
-export const TestFormGroup = styled.div`
+export const FormGroup = styled.div`
   margin-bottom: 1.5em;
   transition: all 0.3s;
   &:focus-within {
@@ -121,7 +73,7 @@ export const TestFormGroup = styled.div`
   }
 `;
 
-export const TestFormLabel = styled.label`
+export const FormLabel = styled.label`
   font-size: 1em;
   color: #ff652f;
   display: block;
@@ -131,7 +83,7 @@ export const TestFormLabel = styled.label`
   font-family: "Roboto", sans-serif;
 `;
 
-export const TestControl = styled.input`
+export const Control = styled.input`
   background-color: #3e3d3e;
   color: #8e8e8e;
   border-radius: 0;
@@ -155,7 +107,7 @@ export const TestControl = styled.input`
   }
 `;
 
-export const TestControlText = styled.textarea`
+export const ControlText = styled.textarea`
   box-shadow: none;
   color: #8e8e8e;
   background-color: #3e3d3e;
@@ -178,27 +130,13 @@ export const TestControlText = styled.textarea`
   }
 `;
 
-export const Butt = styled.button`
-  background: 0 0 #fff;
-  border: 1px solid #aaa;
-  border-radius: 3px;
-  color: red;
-  font-size: 1em;
-  padding: 10 50px;
-  text-transform: uppercase;
-  &:hover {
-    border-color: green;
-    color: green;
-  }
-`;
-
 export const ContactWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
 `;
 
-export const NewButton = styled.button`
+export const Button = styled.button`
   align-self: center;
   height: 60px;
   width: 40%;
@@ -218,7 +156,6 @@ export const NewButton = styled.button`
   margin: 0;
   opacity: 1;
   outline: 0;
-
   position: relative;
   text-align: center;
   text-decoration: none;
@@ -273,7 +210,7 @@ export const LeftIcons = styled.div`
   gap: 10%;
   p {
     color: white;
-    font-family: "Inconsolata", monospace;
+    font-family: "Roboto", monospace;
     font-size: 1.3em;
   }
 `;

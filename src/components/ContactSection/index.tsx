@@ -12,12 +12,12 @@ import {
   InnerContainer,
   LeftIcons,
   LeftIconsContainer,
-  NewButton,
-  TestControl,
-  TestControlText,
-  TestForm,
-  TestFormGroup,
-  TestFormLabel,
+  Button,
+  Control,
+  ControlText,
+  Form,
+  FormGroup,
+  FormLabel,
   Title,
 } from "./ContactElements";
 import { BiMobileVibration } from "react-icons/bi";
@@ -114,88 +114,88 @@ const ContactSection = () => {
                 transition={{ duration: 2 }}
               >
                 <p>Send Email</p>
-                <TestForm ref={form} onSubmit={sendEmail}>
-                  <TestFormGroup
+                <Form ref={form} onSubmit={sendEmail}>
+                  <FormGroup
                     onFocus={() => setInputActive(1)}
                     onBlur={() => setInputActive(0)}
                   >
-                    <TestFormLabel
+                    <FormLabel
                       className={inputActive === 1 ? "focused" : ""}
                       htmlFor="name"
                     >
                       Your name
-                    </TestFormLabel>
-                    <TestControl
+                    </FormLabel>
+                    <Control
                       type="text"
                       id="name"
                       name="name"
                       placeholder="Walter White"
                       tabIndex={1}
                       required
-                    ></TestControl>
-                  </TestFormGroup>
-                  <TestFormGroup
+                    ></Control>
+                  </FormGroup>
+                  <FormGroup
                     onFocus={() => setInputActive(2)}
                     onBlur={() => setInputActive(0)}
                   >
-                    <TestFormLabel
+                    <FormLabel
                       className={inputActive === 2 ? "focused" : ""}
                       htmlFor="email"
                     >
                       Your Email
-                    </TestFormLabel>
-                    <TestControl
+                    </FormLabel>
+                    <Control
                       type="email"
                       id="email"
                       name="email"
                       placeholder="saymyname@gmail.com"
                       tabIndex={2}
                       required
-                    ></TestControl>
-                  </TestFormGroup>
-                  <TestFormGroup
+                    ></Control>
+                  </FormGroup>
+                  <FormGroup
                     onFocus={() => setInputActive(3)}
                     onBlur={() => setInputActive(0)}
                   >
-                    <TestFormLabel
+                    <FormLabel
                       className={inputActive === 3 ? "focused" : ""}
                       htmlFor="subject"
                     >
                       Subject
-                    </TestFormLabel>
-                    <TestControl
+                    </FormLabel>
+                    <Control
                       type="text"
                       id="subject"
                       name="subject"
-                      placeholder="Hello there!"
+                      placeholder="Hello!"
                       tabIndex={3}
                       required
-                    ></TestControl>
-                  </TestFormGroup>
-                  <TestFormGroup
+                    ></Control>
+                  </FormGroup>
+                  <FormGroup
                     onFocus={() => setInputActive(4)}
                     onBlur={() => setInputActive(0)}
                   >
-                    <TestFormLabel
+                    <FormLabel
                       className={inputActive === 4 ? "focused" : ""}
                       htmlFor="message"
                     >
                       Message
-                    </TestFormLabel>
-                    <TestControlText
+                    </FormLabel>
+                    <ControlText
                       rows={5}
                       cols={50}
                       id="message"
                       name="message"
                       placeholder="Enter Message..."
                       tabIndex={4}
-                    ></TestControlText>
-                  </TestFormGroup>
+                    ></ControlText>
+                  </FormGroup>
 
-                  <NewButton type="submit">
+                  <Button type="submit">
                     <span>Send!</span>
-                  </NewButton>
-                </TestForm>
+                  </Button>
+                </Form>
               </FormContainer>
             </ContactWrapper>
           </InnerContainer>

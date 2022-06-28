@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
-import { Header, Logo, Nav, NavLink, Test, Underline } from "./NavBarElements";
+import { Header, Nav, NavLink, Logo, Underline } from "./NavBarElements";
 import { Link } from "react-scroll";
-import { AnimateSharedLayout } from "framer-motion";
 import { useState } from "react";
 
 const icon = {
@@ -49,7 +48,7 @@ const NavBar = () => {
   return (
     <Header>
       <Link to="home">
-        <Test
+        <Logo
           animate={{ rotate: 360 }}
           transition={{ delay: 3, duration: 1.5 }}
         >
@@ -76,7 +75,7 @@ const NavBar = () => {
               </clipPath>
             </defs>
           </motion.svg>
-        </Test>
+        </Logo>
       </Link>
       <Nav>
         {navItems.map((el, i) => (
