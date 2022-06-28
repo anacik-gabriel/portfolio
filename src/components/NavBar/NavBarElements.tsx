@@ -15,18 +15,6 @@ export const Header = styled.header`
   justify-content: space-between;
 `;
 
-export const Logo = styled.div`
-  display: flex;
-  align-items: center;
-  margin-left: 30px;
-  #item {
-    stroke: #fff;
-    stroke-width: 1px;
-    stroke-linejoin: round;
-    stroke-linecap: round;
-  }
-`;
-
 export const Nav = styled.nav`
   display: flex;
   gap: 60px;
@@ -41,6 +29,7 @@ export const NavLink = styled(motion.div)`
   font-size: 30px;
   font-family: "Inconsolata", monospace;
   position: relative;
+
   a {
     cursor: pointer;
   }
@@ -56,7 +45,7 @@ export const Underline = styled(motion.div)`
   top: 70px;
 `;
 
-export const Test = styled(motion.div)`
+export const Logo = styled(motion.div)`
   margin-top: 15px;
   cursor: pointer;
   margin-left: 60px;

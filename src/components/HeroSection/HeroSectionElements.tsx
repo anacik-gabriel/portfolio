@@ -7,7 +7,6 @@ export const HeroContainer = styled.section`
   padding-top: 90px;
   width: 100%;
   height: 100vh;
-  scroll-snap-align: start;
 `;
 
 export const HeroTextLeft = styled.h1`
@@ -48,9 +47,7 @@ export const HeroTextRight = styled.h1`
 `;
 
 export const InnerContainer = styled.div`
-  @media (min-width: 1501px) {
-    max-width: 1260px;
-  }
+  max-width: 1260px;
   display: flex;
   flex-direction: column;
   width: 100%;

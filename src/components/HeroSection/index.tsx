@@ -7,15 +7,7 @@ import {
   HeroTextRight,
   InnerContainer,
 } from "./HeroSectionElements";
-import {
-  Link,
-  Button,
-  Element,
-  Events,
-  animateScroll as scroll,
-  scrollSpy,
-  scroller,
-} from "react-scroll";
+import { Element } from "react-scroll";
 
 const line = "Hi, my name is Gabriel!";
 const line2 = "I'm a beginner web-developer.";
@@ -48,9 +40,11 @@ const textRightVariants = {
   visible: { x: 0 },
   hidden: { x: 1800 },
 };
+
 const HeroSection = () => {
   const controls = useAnimation();
   const [ref, inView] = useInView();
+
   useEffect(() => {
     inView ? controls.start("visible") : controls.start("hidden");
   }, [controls, inView]);
